@@ -15,18 +15,62 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_09_224654) do
   enable_extension "plpgsql"
 
   create_table "appointments", force: :cascade do |t|
+    t.date "appointment_date"
+    t.bigint "doctor_id", null: false
+    t.bigint "patient_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
+    t.index ["patient_id"], name: "index_appointments_on_patient_id"
+  end
+
+  create_table "beds", force: :cascade do |t|
+    t.bigint "patient_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_beds_on_patient_id"
+  end
+
+  create_table "doctors", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "specialty"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "beds", force: :cascade do |t|
+  create_table "nurses", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "patients", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.date "birth_date"
+    t.string "gender"
+    t.text "description"
+    t.string "nationality"
+    t.date "check_in"
+    t.date "check_out"
+    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "surgeries", force: :cascade do |t|
+    t.bigint "doctor_id", null: false
+    t.bigint "patient_id", null: false
+    t.bigint "nurses_id", null: false
+    t.date "check_in"
+    t.date "check_out"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["doctor_id"], name: "index_surgeries_on_doctor_id"
+    t.index ["nurses_id"], name: "index_surgeries_on_nurses_id"
+    t.index ["patient_id"], name: "index_surgeries_on_patient_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,9 +81,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_09_224654) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "role", default: "patient", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "appointments", "doctors"
+  add_foreign_key "appointments", "patients"
+  add_foreign_key "beds", "patients"
+  add_foreign_key "surgeries", "doctors"
+  add_foreign_key "surgeries", "nurses", column: "nurses_id"
+  add_foreign_key "surgeries", "patients"
 end
