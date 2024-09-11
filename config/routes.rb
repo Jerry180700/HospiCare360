@@ -1,18 +1,4 @@
 Rails.application.routes.draw do
-  get 'appointments/index'
-  get 'appointments/show'
-  get 'appointments/new'
-  get 'appointments/create'
-  get 'appointments/edit'
-  get 'appointments/update'
-  get 'appointments/destroy'
-  get 'doctors/index'
-  get 'doctors/show'
-  get 'doctors/new'
-  get 'doctors/create'
-  get 'doctors/edit'
-  get 'doctors/update'
-  get 'doctors/destroy'
   devise_for :users
 
   # Rutas protegidas por Devise para autenticación
