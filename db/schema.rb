@@ -68,14 +68,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_11_203624) do
     t.index ["user_id"], name: "index_doctor_specialties_on_user_id"
   end
 
-  create_table "doctors", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "specialty"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "medical_resumes", force: :cascade do |t|
     t.bigint "resume_id"
     t.bigint "user_id"
@@ -83,27 +75,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_11_203624) do
     t.datetime "updated_at", null: false
     t.index ["resume_id"], name: "index_medical_resumes_on_resume_id"
     t.index ["user_id"], name: "index_medical_resumes_on_user_id"
-  end
-
-  create_table "nurses", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "patients", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.date "birth_date"
-    t.string "gender"
-    t.text "description"
-    t.string "nationality"
-    t.date "check_in"
-    t.date "check_out"
-    t.integer "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "resumes", force: :cascade do |t|
@@ -153,14 +124,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_11_203624) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "appointments", "doctors"
-  add_foreign_key "appointments", "patients"
-  add_foreign_key "beds", "patients"
+  add_foreign_key "appointments", "users", column: "doctor_id"
+  add_foreign_key "appointments", "users", column: "patient_id"
+  add_foreign_key "beds", "users", column: "patient_id"
   add_foreign_key "doctor_specialties", "specialties"
   add_foreign_key "doctor_specialties", "users"
   add_foreign_key "medical_resumes", "resumes"
   add_foreign_key "medical_resumes", "users"
-  add_foreign_key "surgeries", "doctors"
-  add_foreign_key "surgeries", "nurses", column: "nurses_id"
-  add_foreign_key "surgeries", "patients"
+  add_foreign_key "surgeries", "users", column: "doctor_id"
+  add_foreign_key "surgeries", "users", column: "nurses_id"
+  add_foreign_key "surgeries", "users", column: "patient_id"
 end
