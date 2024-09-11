@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :beds
   end
 
+  # http://127.0.0.1:3000/patients/patient_id/bed
 
   # homepage
   root to: "pages#home"
@@ -27,5 +28,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
 
 end
