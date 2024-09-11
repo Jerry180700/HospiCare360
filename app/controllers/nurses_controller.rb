@@ -1,5 +1,5 @@
 class NursesController < ApplicationController
-  before_action :set_nurse, only: %i[show edit update destroy]
+  before_action :set_nurse, only: %i[show edit update destroy]  
   # Método de listado de las enfermeras
   def index
     @nurses = Nurse.all
