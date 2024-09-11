@@ -1,3 +1,37 @@
 <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
 
+<%# Inicio del carrusel %>
+<div id="carouselExample" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+    <%= image_tag "baner1", class: "d-block w-100" %>
+    </div>
+    <div class="carousel-item">
+   <%= image_tag "baner2", class: "d-block w-100" %>
+    </div>
+    <div class="carousel-item">
+     <%= image_tag "baner3", class: "d-block w-100" %>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<%# Fin del carrusel %>
+
+<div class="row mt-4">
+  <div class="col-6">
+    <%= image_tag "medicos.jpg", class:"img-home" %>
+  </div>
+  <div class="col-6 mt-5">
+    <div>
+      <h1>La mejor red <span>medicos especialistas
+       <a class="et_pb_button et_pb_button_0 et_pb_bg_layout_light" href="">Busca tu médico</a></span></h1>
+    </div>
+  </div>
+</div>
