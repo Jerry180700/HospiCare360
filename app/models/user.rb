@@ -4,11 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
-  enum role: { doctor: 'doctor', nurse: 'nurse', patient: 'patient' }
-
-  validates :role, presence: true
-
+  enum role: { patient: 0, nurse: 1, doctor: 2 }
   has_one_attached :photo
-
 end
