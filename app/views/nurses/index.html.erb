@@ -17,8 +17,8 @@
     <% @nurses.each do |nurse| %>
     <tr>
       <td><%= nurse.id %></td>
-      <td><%= nurse.firstname %></td>
-      <td><%= nurse.lastname %></td>
+      <td><%= nurse.first_name %></td>
+      <td><%= nurse.last_name %></td>
       <td><%= link_to "Detalles", nurse_path(nurse), class: 'btn btn-primary' %></td>
     </tr>
     <% end %>

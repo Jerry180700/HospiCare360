@@ -17,7 +17,7 @@ class AppointmentsController < ApplicationController
     if @appointment.save
       redirect_to @appointment, notice: 'Appointment was successfully created.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -34,7 +34,7 @@ class AppointmentsController < ApplicationController
 
   def destroy
     @appointment.destroy
-    redirect_to appointments_url, notice: 'Appointment was successfully destroyed.'
+    redirect_to appointments_url, status: :see_other, notice: 'Appointment was successfully destroyed.'
   end
 
   private
