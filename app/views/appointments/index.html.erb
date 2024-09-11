@@ -1,0 +1,28 @@
+<h1>Appointments</h1>
+
+<%= link_to 'New Appointment', new_appointment_path, class: 'btn btn-primary' %>
+
+<table class="table mt-4">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Doctor</th>
+      <th>Patient</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @appointments.each do |appointment| %>
+      <tr>
+        <td><%= appointment.date %></td>
+        <td><%= appointment.doctor.name %></td>
+        <td><%= appointment.patient.name %></td>
+        <td>
+          <%= link_to 'Show', appointment, class: 'btn btn-secondary' %>
+          <%= link_to 'Edit', edit_appointment_path(appointment), class: 'btn btn-warning' %>
+          <%= link_to 'Delete', appointment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
