@@ -50,6 +50,6 @@ private
   end
 
   def nurse_params
-    params.require(:nurse).permit(:firstname, :lastname)
+    params.require(:nurse).permit(:first_name, :last_name)
   end
 end

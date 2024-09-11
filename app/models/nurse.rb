@@ -1,7 +1,7 @@
 class Nurse < User
   has_many :surgeries
 
-  validates :firstname, presence: true
-  validates :lastname, presence: true
- 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+
 end
