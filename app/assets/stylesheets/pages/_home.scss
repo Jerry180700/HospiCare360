@@ -6,3 +6,114 @@
 .img-home{
   width: 80%;
 }
+
+.et_pb_section_2 {
+  background-color: #2e83f4;
+  padding: 50px 0;
+
+  .et_pb_text_1 {
+    h2 {
+      font-size: 36px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+  }
+
+  .dmg-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+
+    .dmg_masonry_gallery_item {
+      position: relative;
+      width: 30%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .dmg-img-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        display: flex;
+        align-items: flex-end;
+        padding: 20px;
+        transition: opacity 0.3s ease-in-out;
+
+        div {
+          color: #fff;
+
+          .dmg-img-overlay-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+          }
+
+          .dmg-img-overlay-caption {
+            font-size: 14px;
+          }
+        }
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.1);
+        }
+
+        .dmg-img-overlay {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.btn-ghost {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
+}
+
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #670BFF;
+  transition: background 0.3s ease;
+}
+
+.btn-flat:hover {
+  background: #4D04C4;
+  color: white;
+}
+
+.btn-gradient {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: linear-gradient(#167FFB, #0F60C4);
+  transition: background 0.3s ease;
+  border: 1px solid #0F60C4;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(#147EFF, #0F67DA);
+  color: white;
+}
