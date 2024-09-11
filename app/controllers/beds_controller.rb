@@ -1,5 +1,5 @@
 class BedsController < ApplicationController
-  before_action :set_bed, only: [:show, :edit, :update, :destroy]
+  before_action :set_bed, only: %i[show edit update destroy]
 
   def create
     @bed = Bed.new(bed_params)
@@ -25,6 +25,7 @@ class BedsController < ApplicationController
   end
 
   private
+
   def set_bed
     @bed = Bed.find(params[:id])
   end
