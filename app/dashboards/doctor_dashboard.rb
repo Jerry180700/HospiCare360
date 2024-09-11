@@ -15,10 +15,12 @@ class DoctorDashboard < Administrate::BaseDashboard
     remember_created_at: Field::DateTime,
     reset_password_sent_at: Field::DateTime,
     reset_password_token: Field::String,
-    role: Field::Select.with_options(searchable: false, collection: ->(field) { field.resource.class.send(field.attribute.to_s.pluralize).keys }),
+    role: Field::Select.with_options(searchable: false, collection: lambda { |field|
+                                                                      field.resource.class.send(field.attribute.to_s.pluralize).keys
+                                                                    }),
     surgeries: Field::HasMany,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
