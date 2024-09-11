@@ -1,0 +1,26 @@
+<h1>Listado de enfermeras</h1>
+<a href="<%= new_nurse_path %>" class="btn btn-primary btn-icon-split">
+  <span class="icon text-white-50">
+      <i class="fas fa-flag"></i>
+  </span>
+  <span class="text">Crear enfermera</span>
+</a>
+<br><br>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nombres</th>
+      <th>Apeliidos</th>
+  </thead>
+  <tbody>
+    <% @nurses.each do |nurse| %>
+    <tr>
+      <td><%= nurse.id %></td>
+      <td><%= nurse.firstname %></td>
+      <td><%= nurse.lastname %></td>
+      <td><%= link_to "Detalles", nurse_path(nurse), class: 'btn btn-primary' %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

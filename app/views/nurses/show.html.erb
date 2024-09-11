@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1>Detalles de la enfermera</h1>
+    <%= link_to "Regresar al listado de enfermeras", nurses_path, class: 'btn btn-primary' %>
+    <%= link_to "Editar", edit_nurse_path(@nurse), class: 'btn btn-primary' %>
+    <%= button_to "Destroy this nurse", @doctor, method: :delete, class: "btn btn-danger" %>
+    <%# <%= link_to "Delete this nurse", @nurse, method: :delete, class: "btn btn-danger" %>
+
+    <div class="card" style="padding: 20px;">
+      <table class="table">
+        <tr>
+          <td><b>Nombres:</b></td>
+          <td><%= @nurse.firstname %></td>
+        </tr>
+        <tr>
+          <td><b>Apellidos:</b></td>
+          <td><%= @nurse.lastname %></td>
+        </tr>
+        <tr>
+          <td><b>Fecha de creación:</b></td>
+          <td><%= @nurse.created_at %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
