@@ -1,0 +1,18 @@
+<%= form_with(model: doctor, local: true) do |form| %>
+  <div class="mb-3">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :specialization %>
+    <%= form.text_field :specialization, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :phone %>
+    <%= form.telephone_field :phone, class: 'form-control' %>
+  </div>
+
+  <%= form.submit class: 'btn btn-primary' %>
+<% end %>
