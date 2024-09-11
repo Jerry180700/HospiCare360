@@ -43,20 +43,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_09_224654) do
   end
 
   create_table "appointments", force: :cascade do |t|
-    t.date "appointment_date"
-    t.bigint "doctor_id", null: false
-    t.bigint "patient_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
-    t.index ["patient_id"], name: "index_appointments_on_patient_id"
   end
 
   create_table "beds", force: :cascade do |t|
-    t.bigint "patient_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["patient_id"], name: "index_beds_on_patient_id"
   end
 
   create_table "doctors", force: :cascade do |t|
@@ -89,16 +82,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_09_224654) do
   end
 
   create_table "surgeries", force: :cascade do |t|
-    t.bigint "doctor_id", null: false
-    t.bigint "patient_id", null: false
-    t.bigint "nurses_id", null: false
-    t.date "check_in"
-    t.date "check_out"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["doctor_id"], name: "index_surgeries_on_doctor_id"
-    t.index ["nurses_id"], name: "index_surgeries_on_nurses_id"
-    t.index ["patient_id"], name: "index_surgeries_on_patient_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -118,10 +103,4 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_09_224654) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "appointments", "doctors"
-  add_foreign_key "appointments", "patients"
-  add_foreign_key "beds", "patients"
-  add_foreign_key "surgeries", "doctors"
-  add_foreign_key "surgeries", "nurses", column: "nurses_id"
-  add_foreign_key "surgeries", "patients"
 end

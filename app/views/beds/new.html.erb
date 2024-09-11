@@ -1,0 +1,30 @@
+<h1><%= action_name == 'new' ? 'New Bed' : 'Edit Bed' %></h1>
+
+<%= form_with(model: @bed) do |form| %>
+  <% if @bed.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bed.errors.count, "error") %> prohibited this bed from being saved:</h2>
+      <ul>
+        <% @bed.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :created_at %>
+    <%= form.datetime_select :created_at %>
+  </div>
+
+  <div>
+    <%= form.label :updated_at %>
+    <%= form.datetime_select :updated_at %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', beds_path %>

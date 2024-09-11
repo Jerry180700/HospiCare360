@@ -5,5 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   enum role: { patient: 0, nurse: 1, doctor: 2 }
+  
+   validates :role, presence: true
+
   has_one_attached :photo
 end

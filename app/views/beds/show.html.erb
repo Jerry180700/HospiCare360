@@ -1,0 +1,12 @@
+<h1>Bed Details</h1>
+<p>
+  <strong>Created at:</strong>
+  <%= @bed.created_at %>
+</p>
+<p>
+  <strong>Updated at:</strong>
+  <%= @bed.updated_at %>
+</p>
+
+<%= link_to 'Edit', edit_bed_path(@bed) %> |
+<%= link_to 'Back', beds_path %>
