@@ -12,8 +12,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :doctors
-  resources :appointments
+  resources :patients do
+    resources :beds
+  end
+
 
   # homepage
   root to: "pages#home"
@@ -25,4 +27,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
 end
