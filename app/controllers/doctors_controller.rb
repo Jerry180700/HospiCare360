@@ -17,7 +17,7 @@ class DoctorsController < ApplicationController
     if @doctor.save
       redirect_to @doctor, notice: 'Doctor was successfully created.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -34,7 +34,7 @@ class DoctorsController < ApplicationController
 
   def destroy
     @doctor.destroy
-    redirect_to doctors_url, notice: 'Doctor was successfully destroyed.'
+    redirect_to doctors_url, status: :see_other, notice: 'Doctor was successfully destroyed.'
   end
 
   private
@@ -44,6 +44,6 @@ class DoctorsController < ApplicationController
   end
 
   def doctor_params
-    params.require(:doctor).permit(:name, :specialization)
+    params.require(:doctor).permit(:name, :specialty)
   end
 end
