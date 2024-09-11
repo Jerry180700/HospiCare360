@@ -52,6 +52,35 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_09_224654) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "doctors", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "specialty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "nurses", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "patients", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.date "birth_date"
+    t.string "gender"
+    t.text "description"
+    t.string "nationality"
+    t.date "check_in"
+    t.date "check_out"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "surgeries", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

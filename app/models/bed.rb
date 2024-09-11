@@ -1,3 +1,6 @@
 class Bed < ApplicationRecord
-   belongs_to :patient, class_name: 'Patient', foreign_key: 'patient_id'
+  belongs_to :patient
+
+  validates :created_at, presence: true
+  validates :updated_at, presence: true
 end
