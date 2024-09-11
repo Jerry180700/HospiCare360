@@ -43,20 +43,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_11_203624) do
   end
 
   create_table "appointments", force: :cascade do |t|
-    t.date "appointment_date"
-    t.bigint "doctor_id", null: false
-    t.bigint "patient_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
-    t.index ["patient_id"], name: "index_appointments_on_patient_id"
   end
 
   create_table "beds", force: :cascade do |t|
-    t.bigint "patient_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["patient_id"], name: "index_beds_on_patient_id"
   end
 
   create_table "doctor_specialties", force: :cascade do |t|
@@ -127,16 +120,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_11_203624) do
   end
 
   create_table "surgeries", force: :cascade do |t|
-    t.bigint "doctor_id", null: false
-    t.bigint "patient_id", null: false
-    t.bigint "nurses_id", null: false
-    t.date "check_in"
-    t.date "check_out"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["doctor_id"], name: "index_surgeries_on_doctor_id"
-    t.index ["nurses_id"], name: "index_surgeries_on_nurses_id"
-    t.index ["patient_id"], name: "index_surgeries_on_patient_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -145,9 +130,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_11_203624) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "type"
-    t.string "first_name"
-    t.string "last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -156,14 +138,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_11_203624) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "appointments", "doctors"
-  add_foreign_key "appointments", "patients"
-  add_foreign_key "beds", "patients"
   add_foreign_key "doctor_specialties", "specialties"
   add_foreign_key "doctor_specialties", "users"
   add_foreign_key "medical_resumes", "resumes"
   add_foreign_key "medical_resumes", "users"
-  add_foreign_key "surgeries", "doctors"
-  add_foreign_key "surgeries", "nurses", column: "nurses_id"
-  add_foreign_key "surgeries", "patients"
 end
