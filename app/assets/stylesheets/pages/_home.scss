@@ -10,22 +10,23 @@
 .et_pb_section_2 {
   background-color: #2e83f4;
   padding: 50px 0;
+}
 
-  .et_pb_text_1 {
+.et_pb_text_1 {
     h2 {
       font-size: 36px;
       color: #333;
       margin-bottom: 20px;
     }
-  }
+}
 
-  .dmg-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
-
-    .dmg_masonry_gallery_item {
+.dmg-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+.dmg_masonry_gallery_item {
       position: relative;
       width: 30%;
       overflow: hidden;
@@ -72,9 +73,8 @@
           opacity: 1;
         }
       }
-    }
-  }
 }
+
 
 .btn-ghost {
   color: #4A4A4A;
@@ -116,4 +116,129 @@
 .btn-gradient:hover {
   background: linear-gradient(#147EFF, #0F67DA);
   color: white;
+}
+
+// Galeria fotos
+
+.cards-container {
+  grid-template-columns: 1fr 1fr 1fr;
+  display: grid;
+  grid-gap: 50px;
+  justify-items: center;
+  align-items: stretch;
+  margin-top: 20px;
+}
+
+.card {
+  position: relative;
+  width: 400px;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .card-overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    .card-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .card-caption {
+      font-size: 12px;
+    }
+  }
+
+  &:hover .card-overlay {
+    opacity: 1;
+  }
+}
+// Seccion prevenir es curar
+.section {
+  padding: 20px;
+  background-color: #f9f9f9;
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .column {
+    &.half {
+      width: 48%;
+    }
+  }
+
+  .image-container {
+    margin-bottom: 10px;
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    &.box-shadow {
+      position: relative;
+
+      .box-shadow-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.1);
+        z-index: 1;
+      }
+
+      img {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 6px 6px 6px 6px;
+        overflow: hidden;
+        border-color: #2f323e;
+        box-shadow: -20px 12px 18px -6px rgba(102, 141, 186, 0.7);
+      }
+    }
+
+    .image-small {
+      max-width: 600px;
+      height: auto;
+    }
+
+    .image-large {
+      max-width: 650px;
+      height: auto;
+    }
+  }
+
+  .text-container {
+    margin-bottom: 20px;
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #333;
+    }
+  }
 }
