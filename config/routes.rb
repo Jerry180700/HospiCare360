@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'services/index'
+  get 'info/meet_us'
   namespace :admin do
       resources :appointments
       resources :beds
@@ -24,6 +26,11 @@ Rails.application.routes.draw do
 
   # homepage
   root to: "pages#home"
+
+  # para services
+  get 'services', to: 'services#index'
+
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
