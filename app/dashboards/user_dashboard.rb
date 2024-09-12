@@ -9,14 +9,20 @@ class UserDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
+    doctor_specialty: Field::HasOne,
     email: Field::String,
     encrypted_password: Field::String,
+    first_name: Field::String,
+    last_name: Field::String,
+    medical_resume: Field::HasOne,
+    photo_attachment: Field::HasOne,
+    photo_blob: Field::HasOne,
     remember_created_at: Field::DateTime,
     reset_password_sent_at: Field::DateTime,
     reset_password_token: Field::String,
-    role: Field::Select.with_options(searchable: false, collection: lambda { |field|
-                                                                      field.resource.class.send(field.attribute.to_s.pluralize).keys
-                                                                    }),
+    resume: Field::HasOne,
+    specialty: Field::HasOne,
+    type: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -28,21 +34,29 @@ class UserDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
+    doctor_specialty
     email
     encrypted_password
-    remember_created_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
+    doctor_specialty
     email
     encrypted_password
+    first_name
+    last_name
+    medical_resume
+    photo_attachment
+    photo_blob
     remember_created_at
     reset_password_sent_at
     reset_password_token
-    role
+    resume
+    specialty
+    type
     created_at
     updated_at
   ].freeze
@@ -51,12 +65,20 @@ class UserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
+    doctor_specialty
     email
     encrypted_password
+    first_name
+    last_name
+    medical_resume
+    photo_attachment
+    photo_blob
     remember_created_at
     reset_password_sent_at
     reset_password_token
-    role
+    resume
+    specialty
+    type
   ].freeze
 
   # COLLECTION_FILTERS
