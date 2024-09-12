@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'profiles/home'
+  get 'profiles/information'
   get 'services/index'
   get 'info/meet_us'
   namespace :admin do
@@ -17,6 +19,9 @@ Rails.application.routes.draw do
       root to: "appointments#index"
     end
   devise_for :users
+
+  # Nueva ruta
+    resources :profiles
 
   # Rutas protegidas por Devise para autenticación
 
