@@ -43,7 +43,7 @@ class NursesController < ApplicationController
     redirect_to nurses_url, notice: 'Nurse was succesfully destroyed'
   end
 
-private
+  private
 
   def set_nurse
     @nurse = Nurse.find(params[:id])

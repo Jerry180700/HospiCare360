@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class NurseDashboard < Administrate::BaseDashboard
+class DoctorSpecialtyDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -9,21 +9,9 @@ class NurseDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    doctor_specialty: Field::HasOne,
-    email: Field::String,
-    encrypted_password: Field::String,
-    first_name: Field::String,
-    last_name: Field::String,
-    medical_resume: Field::HasOne,
-    photo_attachment: Field::HasOne,
-    photo_blob: Field::HasOne,
-    remember_created_at: Field::DateTime,
-    reset_password_sent_at: Field::DateTime,
-    reset_password_token: Field::String,
-    resume: Field::HasOne,
-    specialty: Field::HasOne,
-    surgeries: Field::HasMany,
-    type: Field::String,
+    doctor: Field::BelongsTo,
+    specialty: Field::BelongsTo,
+    user_id: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -35,30 +23,18 @@ class NurseDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    doctor_specialty
-    email
-    encrypted_password
+    doctor
+    specialty
+    user_id
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    doctor_specialty
-    email
-    encrypted_password
-    first_name
-    last_name
-    medical_resume
-    photo_attachment
-    photo_blob
-    remember_created_at
-    reset_password_sent_at
-    reset_password_token
-    resume
+    doctor
     specialty
-    surgeries
-    type
+    user_id
     created_at
     updated_at
   ].freeze
@@ -67,21 +43,9 @@ class NurseDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    doctor_specialty
-    email
-    encrypted_password
-    first_name
-    last_name
-    medical_resume
-    photo_attachment
-    photo_blob
-    remember_created_at
-    reset_password_sent_at
-    reset_password_token
-    resume
+    doctor
     specialty
-    surgeries
-    type
+    user_id
   ].freeze
 
   # COLLECTION_FILTERS
@@ -96,10 +60,10 @@ class NurseDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how nurses are displayed
+  # Overwrite this method to customize how doctor specialties are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(nurse)
-  #   "Nurse ##{nurse.id}"
+  # def display_resource(doctor_specialty)
+  #   "DoctorSpecialty ##{doctor_specialty.id}"
   # end
 end
