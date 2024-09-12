@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_11_203624) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_12_214829) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -100,13 +100,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_11_203624) do
   create_table "surgeries", force: :cascade do |t|
     t.bigint "doctor_id", null: false
     t.bigint "patient_id", null: false
-    t.bigint "nurses_id", null: false
+    t.bigint "nurse_id", null: false
     t.date "check_in"
     t.date "check_out"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["doctor_id"], name: "index_surgeries_on_doctor_id"
-    t.index ["nurses_id"], name: "index_surgeries_on_nurses_id"
+    t.index ["nurse_id"], name: "index_surgeries_on_nurse_id"
     t.index ["patient_id"], name: "index_surgeries_on_patient_id"
   end
 
@@ -135,6 +135,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_11_203624) do
   add_foreign_key "medical_resumes", "resumes"
   add_foreign_key "medical_resumes", "users"
   add_foreign_key "surgeries", "users", column: "doctor_id"
-  add_foreign_key "surgeries", "users", column: "nurses_id"
+  add_foreign_key "surgeries", "users", column: "nurse_id"
   add_foreign_key "surgeries", "users", column: "patient_id"
 end

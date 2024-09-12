@@ -13,7 +13,6 @@ class SurgeryDashboard < Administrate::BaseDashboard
     check_out: Field::Date,
     doctor: Field::BelongsTo,
     nurse: Field::BelongsTo,
-    nurses_id: Field::Number,
     patient: Field::BelongsTo,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
@@ -39,7 +38,6 @@ class SurgeryDashboard < Administrate::BaseDashboard
     check_out
     doctor
     nurse
-    nurses_id
     patient
     created_at
     updated_at
@@ -53,7 +51,6 @@ class SurgeryDashboard < Administrate::BaseDashboard
     check_out
     doctor
     nurse
-    nurses_id
     patient
   ].freeze
 
