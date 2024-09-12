@@ -10,22 +10,23 @@
 .et_pb_section_2 {
   background-color: #2e83f4;
   padding: 50px 0;
+}
 
-  .et_pb_text_1 {
+.et_pb_text_1 {
     h2 {
       font-size: 36px;
       color: #333;
       margin-bottom: 20px;
     }
-  }
+}
 
-  .dmg-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
-
-    .dmg_masonry_gallery_item {
+.dmg-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+.dmg_masonry_gallery_item {
       position: relative;
       width: 30%;
       overflow: hidden;
@@ -73,8 +74,7 @@
         }
       }
     }
-  }
-}
+
 
 .btn-ghost {
   color: #4A4A4A;
@@ -116,4 +116,55 @@
 .btn-gradient:hover {
   background: linear-gradient(#147EFF, #0F67DA);
   color: white;
+}
+
+// Galeria fotos
+
+.cards-container {
+  grid-template-columns: 1fr 1fr 1fr;
+  display: grid;
+  grid-gap: 50px;
+  justify-items: center;
+  align-items: stretch;
+  margin-top: 20px;
+}
+
+.card {
+  position: relative;
+  width: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .card-overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    .card-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .card-caption {
+      font-size: 12px;
+    }
+  }
+
+  &:hover .card-overlay {
+    opacity: 1;
+  }
 }
