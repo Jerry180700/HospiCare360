@@ -11,7 +11,7 @@ class BedDashboard < Administrate::BaseDashboard
     id: Field::Number,
     patient: Field::BelongsTo,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime
+    updated_at: Field::DateTime,
   }.freeze
 
   # COLLECTION_ATTRIBUTES

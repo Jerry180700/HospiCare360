@@ -23,10 +23,11 @@ class PatientDashboard < Administrate::BaseDashboard
     reset_password_token: Field::String,
     resume: Field::HasOne,
     specialty: Field::HasOne,
+    statuses: Field::HasMany,
     surgeries: Field::HasMany,
     type: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime
+    updated_at: Field::DateTime,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -59,6 +60,7 @@ class PatientDashboard < Administrate::BaseDashboard
     reset_password_token
     resume
     specialty
+    statuses
     surgeries
     type
     created_at
@@ -83,6 +85,7 @@ class PatientDashboard < Administrate::BaseDashboard
     reset_password_token
     resume
     specialty
+    statuses
     surgeries
     type
   ].freeze
