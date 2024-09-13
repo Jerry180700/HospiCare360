@@ -1,34 +1,47 @@
-<h1>Dashboard del Paciente</h1>
-
-<div>
-  <label>Nombre:</label>
-  <span><%= @patient.first_name %> <%= @patient.last_name %></span>
-</div>
-
-<div>
-  <label>Edad:</label>
-  <span><%= @patient.age %></span> <!-- Suponiendo que hay un método age en el modelo User -->
-</div>
-
-<div>
-  <label>Sexo:</label>
-  <span><%= @patient.gender %></span>
-</div>
-
-<div>
-  <label>Nacionalidad:</label>
-  <span><%= @patient.nationality %></span>
-</div>
-
-<h2>Estudios recientes</h2>
-<% @recent_studies.each do |study| %>
-  <div>
-    <h3><%= study.resume.title %></h3> <!-- Suponiendo que hay un campo title en el modelo Resume -->
-    <p><%= study.resume.description %></p>
+<h1 class="mb-4">Dashboard del Paciente</h1>
+<div class="d-flex">
+  <!-- Información del Paciente -->
+  <div class="card" style="width: 20rem;">
+    <div class="card-header">
+      Información del Paciente
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <strong>Names:</strong> <%= @patient.first_name %> <%= @patient.last_name %>
+      </li>
+      <li class="list-group-item">
+        <strong>Gender:</strong> <%= @patient.resume.gender %>
+      </li>
+      <li class="list-group-item">
+        <strong>Nationality:</strong> <%= @patient.resume.nationality %>
+      </li>
+      <li class="list-group-item">
+        <strong>Height:</strong> <%= @patient.resume.height %>
+      </li>
+      <li class="list-group-item">
+        <strong>Weight:</strong> <%= @patient.resume.weight %>
+      </li>
+      <li class="list-group-item">
+        <strong>Check in:</strong> <%= @patient.resume.check_in %>
+      </li>
+      <li class="list-group-item">
+        <strong>Check out:</strong> <%= @patient.resume.check_out %>
+      </li>
+    </ul>
   </div>
-<% end %>
-
-<h2>Calendario de Citas</h2>
-<div id="calendar">
-  <!-- Aquí puedes integrar un componente de calendario -->
+  <h2 class="mb-4">Calendario de Citas</h2>
+  <div id="calendar">
+    <% current_user.appointments.each do |appointment| %>
+      <div class="card mb-3">
+        <div class="card-body">
+          <p><strong>Fecha:</strong> <%= appointment.appointment_date %></p>
+          <p><strong>Doctor:</strong> <%= appointment.doctor.first_name %> <%= appointment.doctor.last_name %></p>
+          p><strong>Doctor:</strong> <%= appointment.doctor.first_name %> <%= appointment.doctor.last_name %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
+
+
+
