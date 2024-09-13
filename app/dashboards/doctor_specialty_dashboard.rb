@@ -45,7 +45,6 @@ class DoctorSpecialtyDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     doctor
     specialty
-    user_id
   ].freeze
 
   # COLLECTION_FILTERS
