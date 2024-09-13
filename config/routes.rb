@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get 'profiles/home'
-  get 'profiles/information'
+  # get 'profiles/home'
+  get 'profiles/home', to: 'profiles#home'
+  # get 'profiles/information'
   get 'services/index'
   get 'info/meet_us'
   namespace :admin do

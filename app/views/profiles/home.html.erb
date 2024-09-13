@@ -1,2 +1,67 @@
-<h1>Profiles#home</h1>
-<p>Find me in app/views/profiles/home.html.erb</p>
+<h1 class="mb-4">Status</h1>
+
+<!-- Usamos una grid para dividir en 4fr y 8fr -->
+<div class="grid-layout" style="display: grid; grid-template-columns: 4fr 8fr; gap: 20px;">
+  <!-- Información del Paciente -->
+  <div class="card">
+    <div class="card-header">
+      Información del Paciente
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <strong>Names:</strong> <%= @patient.first_name %> <%= @patient.last_name %>
+      </li>
+      <li class="list-group-item">
+        <strong>Gender:</strong> <%= @patient.resume.gender %>
+      </li>
+      <li class="list-group-item">
+        <strong>Nationality:</strong> <%= @patient.resume.nationality %>
+      </li>
+      <li class="list-group-item">
+        <strong>Height:</strong> <%= @patient.resume.height %>
+      </li>
+      <li class="list-group-item">
+        <strong>Weight:</strong> <%= @patient.resume.weight %>
+      </li>
+      <li class="list-group-item">
+        <strong>Check in:</strong> <%= @patient.resume.check_in %>
+      </li>
+      <li class="list-group-item">
+        <strong>Check out:</strong> <%= @patient.resume.check_out %>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Calendario de Citas y Datos del Citas -->
+  <div>
+    <!-- Datos de la cita -->
+<div class="accordion" id="appointmentAccordion">
+    <% appointment = current_user.appointments.last %>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingDetails">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDetails" aria-expanded="true" aria-controls="collapseDetails">
+          Pre operatorio
+        </button>
+      </h2>
+      <div id="collapseDetails" class="accordion-collapse collapse show" aria-labelledby="headingDetails" data-bs-parent="#appointmentAccordion">
+        <div class="accordion-body">
+          <p><strong>Date:</strong> <%= appointment.appointment_date %></p>
+          <p><strong>Doctor:</strong> <%= appointment.doctor.first_name %> <%= appointment.doctor.last_name %></p>
+          <p><strong>Patient:</strong> <%= appointment.patient.first_name %> <%= appointment.patient.last_name %></p>
+        </div>
+      </div>
+    </div>
+
+<div>
+
+</div>
+
+
+</div>
+
+
+  </div>
+</div>
+
+<%# <%= appointment.doctor.id %>
+<%# <%= DoctorSpecialty.find_by_user_id(appointment.doctor.id).specialties %> %> %>
