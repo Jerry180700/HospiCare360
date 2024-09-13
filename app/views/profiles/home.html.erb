@@ -5,11 +5,11 @@
   <!-- Información del Paciente -->
   <div class="card">
     <div class="card-header">
-      Información del Paciente
+      Patient Information
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
-        <strong>Names:</strong> <%= @patient.first_name %> <%= @patient.last_name %>
+        <strong>Name:</strong> <%= @patient.first_name %> <%= @patient.last_name %>
       </li>
       <li class="list-group-item">
         <strong>Gender:</strong> <%= @patient.resume.gender %>
@@ -40,14 +40,16 @@
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingDetails">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDetails" aria-expanded="true" aria-controls="collapseDetails">
-          Pre surgery
+          Preoperative
         </button>
       </h2>
       <div id="collapseDetails" class="accordion-collapse collapse show" aria-labelledby="headingDetails" data-bs-parent="#appointmentAccordion">
         <div class="accordion-body">
-          <p><strong>Date:</strong> <%= appointment.appointment_date %></p>
+          <p><strong>Date:</strong> <%= Date.today %></p>
           <p><strong>Doctor:</strong> <%= appointment.doctor.first_name %> <%= appointment.doctor.last_name %></p>
           <p><strong>Patient:</strong> <%= appointment.patient.first_name %> <%= appointment.patient.last_name %></p>
+          <p><strong>Status:</strong> The patient has completed all preoperative procedures and she is waiting to be transferred to the operating room.</p>
+
         </div>
       </div>
     </div>
@@ -55,14 +57,13 @@
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingDetails">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDetails" aria-expanded="true" aria-controls="collapseDetails">
-          Surgery
+          In surgery
         </button>
       </h2>
       <div id="collapseDetails" class="accordion-collapse collapse show" aria-labelledby="headingDetails" data-bs-parent="#appointmentAccordion">
         <div class="accordion-body">
-          <p><strong>Date:</strong> <%= appointment.appointment_date %></p>
-          <p><strong>Doctor:</strong> <%= appointment.doctor.first_name %> <%= appointment.doctor.last_name %></p>
-          <p><strong>Patient:</strong> <%= appointment.patient.first_name %> <%= appointment.patient.last_name %></p>
+          <p><strong>Date:</strong> <%= Date.today %></p>
+          <p><strong>Status:</strong> The patient had no complications in surgery.</p>
         </div>
       </div>
     </div>
@@ -70,29 +71,14 @@
      <div class="accordion-item">
       <h2 class="accordion-header" id="headingDetails">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDetails" aria-expanded="true" aria-controls="collapseDetails">
-          Post Surgery
+          Postoperative
         </button>
       </h2>
       <div id="collapseDetails" class="accordion-collapse collapse show" aria-labelledby="headingDetails" data-bs-parent="#appointmentAccordion">
         <div class="accordion-body">
-          <p><strong>Date:</strong> <%= appointment.appointment_date %></p>
-          <p><strong>Doctor:</strong> <%= appointment.doctor.first_name %> <%= appointment.doctor.last_name %></p>
-          <p><strong>Patient:</strong> <%= appointment.patient.first_name %> <%= appointment.patient.last_name %></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingDetails">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDetails" aria-expanded="true" aria-controls="collapseDetails">
-          In room
-        </button>
-      </h2>
-      <div id="collapseDetails" class="accordion-collapse collapse show" aria-labelledby="headingDetails" data-bs-parent="#appointmentAccordion">
-        <div class="accordion-body">
-          <p><strong>Date:</strong> <%= appointment.appointment_date %></p>
-          <p><strong>Doctor:</strong> <%= appointment.doctor.first_name %> <%= appointment.doctor.last_name %></p>
-          <p><strong>Patient:</strong> <%= appointment.patient.first_name %> <%= appointment.patient.last_name %></p>
+          <p><strong>Date:</strong> <%= Date.today %></p>
+          <p><strong>Status: The patient does not requires special care.</strong> <%= appointment.appointment_date %></p>
+          <p><strong>Nurse:</strong> Leticia Gonzalez</p>
         </div>
       </div>
     </div>
@@ -100,14 +86,15 @@
      <div class="accordion-item">
       <h2 class="accordion-header" id="headingDetails">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDetails" aria-expanded="true" aria-controls="collapseDetails">
-          Discharge
+          Hospital discharge
         </button>
       </h2>
       <div id="collapseDetails" class="accordion-collapse collapse show" aria-labelledby="headingDetails" data-bs-parent="#appointmentAccordion">
         <div class="accordion-body">
-          <p><strong>Date:</strong> <%= appointment.appointment_date %></p>
-          <p><strong>Doctor:</strong> <%= appointment.doctor.first_name %> <%= appointment.doctor.last_name %></p>
+          <p><strong>Date:</strong> <%= Date.today %></p>
           <p><strong>Patient:</strong> <%= appointment.patient.first_name %> <%= appointment.patient.last_name %></p>
+          <p><strong>Patient:</strong> The patient has been discharged without complications.</p>
+
         </div>
       </div>
     </div>
@@ -121,5 +108,3 @@
 
   </div>
 </div>
-
-

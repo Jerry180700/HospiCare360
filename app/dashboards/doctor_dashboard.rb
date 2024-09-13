@@ -93,4 +93,7 @@ class DoctorDashboard < Administrate::BaseDashboard
   # def display_resource(doctor)
   #   "Doctor ##{doctor.id}"
   # end
+  def display_resource(doctor)
+    "#{doctor.first_name} #{doctor.last_name}"
+  end
 end
