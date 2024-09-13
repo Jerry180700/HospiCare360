@@ -5,11 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   before_commit :set_email_password
 
-  has_one_attached :photo
-  has_one :doctor_specialty
-  has_one :specialty, through: :doctor_specialty
-  has_one :medical_resume
-  has_one :resume, through: :medical_resume
+  has_one_attached :photo, dependent: :destroy
+  has_one :doctor_specialty, dependent: :destroy
+  has_one :specialty, through: :doctor_specialty, dependent: :destroy
+  has_one :medical_resume, dependent: :destroy
+  has_one :resume, through: :medical_resume, dependent: :destroy
 
   private
 
