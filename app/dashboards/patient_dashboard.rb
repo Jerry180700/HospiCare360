@@ -95,4 +95,7 @@ class PatientDashboard < Administrate::BaseDashboard
   # def display_resource(patient)
   #   "Patient ##{patient.id}"
   # end
+  def display_resource(patient)
+    "#{patient.first_name} #{patient.last_name}"
+  end
 end
