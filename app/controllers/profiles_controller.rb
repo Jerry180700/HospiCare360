@@ -4,7 +4,6 @@ class ProfilesController < ApplicationController
     @appointments = Appointment.where(patient_id: @patient.id)
     @recent_studies = MedicalResume.includes(:resume).where(user_id: @patient.id)
   end
-
   def information
   end
 end

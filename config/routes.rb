@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+
   # get 'profiles/home'
   get 'profiles/home', to: 'profiles#home'
-  get 'profiles/information'
+  # get 'profiles/information'
   get 'services/index'
   get 'info/meet_us'
+
   namespace :admin do
       resources :appointments
       resources :beds
@@ -14,11 +16,17 @@ Rails.application.routes.draw do
       resources :patients
       resources :resumes
       resources :specialties
+      resources :statuses
       resources :surgeries
       resources :users
 
       root to: "appointments#index"
     end
+  get 'profiles/home'
+  get 'profiles/information'
+  get 'services/index'
+  get 'info/meet_us'
+
   devise_for :users
 
   # Nueva ruta

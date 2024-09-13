@@ -1,7 +1,9 @@
-<h1 class="mb-4">Dashboard del Paciente</h1>
-<div class="d-flex">
+<h1 class="mb-4">Status</h1>
+
+<!-- Usamos una grid para dividir en 4fr y 8fr -->
+<div class="grid-layout" style="display: grid; grid-template-columns: 4fr 8fr; gap: 20px;">
   <!-- Información del Paciente -->
-  <div class="card" style="width: 20rem;">
+  <div class="card">
     <div class="card-header">
       Información del Paciente
     </div>
@@ -29,19 +31,37 @@
       </li>
     </ul>
   </div>
-  <h2 class="mb-4">Calendario de Citas</h2>
-  <div id="calendar">
-    <% current_user.appointments.each do |appointment| %>
-      <div class="card mb-3">
-        <div class="card-body">
-          <p><strong>Fecha:</strong> <%= appointment.appointment_date %></p>
+
+  <!-- Calendario de Citas y Datos del Citas -->
+  <div>
+    <!-- Datos de la cita -->
+<div class="accordion" id="appointmentAccordion">
+    <% appointment = current_user.appointments.last %>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingDetails">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDetails" aria-expanded="true" aria-controls="collapseDetails">
+          Pre operatorio
+        </button>
+      </h2>
+      <div id="collapseDetails" class="accordion-collapse collapse show" aria-labelledby="headingDetails" data-bs-parent="#appointmentAccordion">
+        <div class="accordion-body">
+          <p><strong>Date:</strong> <%= appointment.appointment_date %></p>
           <p><strong>Doctor:</strong> <%= appointment.doctor.first_name %> <%= appointment.doctor.last_name %></p>
-          p><strong>Doctor:</strong> <%= appointment.doctor.first_name %> <%= appointment.doctor.last_name %></p>
+          <p><strong>Patient:</strong> <%= appointment.patient.first_name %> <%= appointment.patient.last_name %></p>
         </div>
       </div>
-    <% end %>
-  </div>
+    </div>
+
+<div>
+
 </div>
 
 
+</div>
 
+
+  </div>
+</div>
+
+<%# <%= appointment.doctor.id %>
+<%# <%= DoctorSpecialty.find_by_user_id(appointment.doctor.id).specialties %> %> %>
