@@ -1,2 +1,34 @@
-<h1>Profiles#home</h1>
-<p>Find me in app/views/profiles/home.html.erb</p>
+<h1>Dashboard del Paciente</h1>
+
+<div>
+  <label>Nombre:</label>
+  <span><%= @patient.first_name %> <%= @patient.last_name %></span>
+</div>
+
+<div>
+  <label>Edad:</label>
+  <span><%= @patient.age %></span> <!-- Suponiendo que hay un método age en el modelo User -->
+</div>
+
+<div>
+  <label>Sexo:</label>
+  <span><%= @patient.gender %></span>
+</div>
+
+<div>
+  <label>Nacionalidad:</label>
+  <span><%= @patient.nationality %></span>
+</div>
+
+<h2>Estudios recientes</h2>
+<% @recent_studies.each do |study| %>
+  <div>
+    <h3><%= study.resume.title %></h3> <!-- Suponiendo que hay un campo title en el modelo Resume -->
+    <p><%= study.resume.description %></p>
+  </div>
+<% end %>
+
+<h2>Calendario de Citas</h2>
+<div id="calendar">
+  <!-- Aquí puedes integrar un componente de calendario -->
+</div>
