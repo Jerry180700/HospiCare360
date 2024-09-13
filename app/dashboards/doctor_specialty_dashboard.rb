@@ -13,7 +13,7 @@ class DoctorSpecialtyDashboard < Administrate::BaseDashboard
     specialty: Field::BelongsTo,
     user_id: Field::Number,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime
+    updated_at: Field::DateTime,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -45,7 +45,6 @@ class DoctorSpecialtyDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     doctor
     specialty
-    user_id
   ].freeze
 
   # COLLECTION_FILTERS

@@ -12,7 +12,7 @@ class DoctorDashboard < Administrate::BaseDashboard
     appointments: Field::HasMany,
     doctor_specialty: Field::HasOne,
     email: Field::String,
-    encrypted_password: Field::String,
+    password: Field::String,
     first_name: Field::String,
     last_name: Field::String,
     medical_resume: Field::HasOne,
@@ -26,7 +26,7 @@ class DoctorDashboard < Administrate::BaseDashboard
     surgeries: Field::HasMany,
     type: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime
+    updated_at: Field::DateTime,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -48,7 +48,7 @@ class DoctorDashboard < Administrate::BaseDashboard
     appointments
     doctor_specialty
     email
-    encrypted_password
+    password
     first_name
     last_name
     medical_resume
@@ -69,22 +69,10 @@ class DoctorDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    appointments
-    doctor_specialty
-    email
-    encrypted_password
     first_name
     last_name
-    medical_resume
-    photo_attachment
-    photo_blob
-    remember_created_at
-    reset_password_sent_at
-    reset_password_token
-    resume
-    specialty
-    surgeries
-    type
+    email
+    password
   ].freeze
 
   # COLLECTION_FILTERS
