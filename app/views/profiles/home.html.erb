@@ -40,7 +40,7 @@
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingDetails">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDetails" aria-expanded="true" aria-controls="collapseDetails">
-          Pre operatorio
+          Pre surgery
         </button>
       </h2>
       <div id="collapseDetails" class="accordion-collapse collapse show" aria-labelledby="headingDetails" data-bs-parent="#appointmentAccordion">
@@ -52,6 +52,65 @@
       </div>
     </div>
 
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingDetails">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDetails" aria-expanded="true" aria-controls="collapseDetails">
+          Surgery
+        </button>
+      </h2>
+      <div id="collapseDetails" class="accordion-collapse collapse show" aria-labelledby="headingDetails" data-bs-parent="#appointmentAccordion">
+        <div class="accordion-body">
+          <p><strong>Date:</strong> <%= appointment.appointment_date %></p>
+          <p><strong>Doctor:</strong> <%= appointment.doctor.first_name %> <%= appointment.doctor.last_name %></p>
+          <p><strong>Patient:</strong> <%= appointment.patient.first_name %> <%= appointment.patient.last_name %></p>
+        </div>
+      </div>
+    </div>
+
+     <div class="accordion-item">
+      <h2 class="accordion-header" id="headingDetails">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDetails" aria-expanded="true" aria-controls="collapseDetails">
+          Post Surgery
+        </button>
+      </h2>
+      <div id="collapseDetails" class="accordion-collapse collapse show" aria-labelledby="headingDetails" data-bs-parent="#appointmentAccordion">
+        <div class="accordion-body">
+          <p><strong>Date:</strong> <%= appointment.appointment_date %></p>
+          <p><strong>Doctor:</strong> <%= appointment.doctor.first_name %> <%= appointment.doctor.last_name %></p>
+          <p><strong>Patient:</strong> <%= appointment.patient.first_name %> <%= appointment.patient.last_name %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingDetails">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDetails" aria-expanded="true" aria-controls="collapseDetails">
+          In room
+        </button>
+      </h2>
+      <div id="collapseDetails" class="accordion-collapse collapse show" aria-labelledby="headingDetails" data-bs-parent="#appointmentAccordion">
+        <div class="accordion-body">
+          <p><strong>Date:</strong> <%= appointment.appointment_date %></p>
+          <p><strong>Doctor:</strong> <%= appointment.doctor.first_name %> <%= appointment.doctor.last_name %></p>
+          <p><strong>Patient:</strong> <%= appointment.patient.first_name %> <%= appointment.patient.last_name %></p>
+        </div>
+      </div>
+    </div>
+
+     <div class="accordion-item">
+      <h2 class="accordion-header" id="headingDetails">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDetails" aria-expanded="true" aria-controls="collapseDetails">
+          Discharge
+        </button>
+      </h2>
+      <div id="collapseDetails" class="accordion-collapse collapse show" aria-labelledby="headingDetails" data-bs-parent="#appointmentAccordion">
+        <div class="accordion-body">
+          <p><strong>Date:</strong> <%= appointment.appointment_date %></p>
+          <p><strong>Doctor:</strong> <%= appointment.doctor.first_name %> <%= appointment.doctor.last_name %></p>
+          <p><strong>Patient:</strong> <%= appointment.patient.first_name %> <%= appointment.patient.last_name %></p>
+        </div>
+      </div>
+    </div>
 <div>
 
 </div>
@@ -63,5 +122,4 @@
   </div>
 </div>
 
-<%# <%= appointment.doctor.id %>
-<%# <%= DoctorSpecialty.find_by_user_id(appointment.doctor.id).specialties %> %> %>
+
