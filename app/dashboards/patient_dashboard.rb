@@ -11,7 +11,7 @@ class PatientDashboard < Administrate::BaseDashboard
     id: Field::Number,
     appointments: Field::HasMany,
     doctor_specialty: Field::HasOne,
-    email: Field::String.with_options(label: "correo electronico"),
+    email: Field::String,
     password: Field::String,
     first_name: Field::String,
     last_name: Field::String,
