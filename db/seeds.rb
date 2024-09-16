@@ -134,35 +134,35 @@ DoctorSpecialty.create(
 )
 
 # Enfermeras
-user_nurse1 = User.create(
+User.create(
   email: "gustavonurse@gmail.com",
   first_name: "Gustavo",
   last_name: "Gutierrez",
   type: "Nurse",
   password: "123456"
 )
-user_nurse2 = User.create(
+User.create(
   email: "leticianurse@gmail.com",
   first_name: "Leticia",
   last_name: "Gonzalez",
   type: "Nurse",
   password: "123456"
 )
-user_nurse3 = User.create(
+User.create(
   email: "patricianurse@gmail.com",
   first_name: "Patricia",
   last_name: "Flores",
   type: "Nurse",
   password: "123456"
 )
-user_nurse4 = User.create(
+User.create(
   email: "isaelnurse@gmail.com",
   first_name: "Isael",
   last_name: "Vazquez",
   type: "Nurse",
   password: "123456"
 )
-user_nurse5 = User.create(
+User.create(
   email: "shanicenurse@gmail.com",
   first_name: "Shanice",
   last_name: "Torres",
