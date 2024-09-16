@@ -26,7 +26,7 @@ user_doctorgerardo = User.create(
   password: "123456"
 )
 
-user_doctor = User.create(
+user_doctoralejandro = User.create(
   email: "alejandro@gmail.com",
   first_name: "Alejandro",
   last_name: "Flores",
@@ -34,7 +34,7 @@ user_doctor = User.create(
   password: "123456"
 )
 
-user_doctor = User.create(
+user_doctorerika = User.create(
   email: "erika@gmail.com",
   first_name: "Erika",
   last_name: "Tezanos",
@@ -42,7 +42,7 @@ user_doctor = User.create(
   password: "123456"
 )
 
-user_doctor = User.create(
+user_doctordaniel = User.create(
   email: "daniel@gmail.com",
   first_name: "Daniel",
   last_name: "Ponce",
@@ -50,15 +50,15 @@ user_doctor = User.create(
   password: "123456"
 )
 
-user_doctor = User.create(
-  email: "Lisseth@gmail.com",
+user_doctorlisseth = User.create(
+  email: "lisseth@gmail.com",
   first_name: "Lisseth",
   last_name: "Damasco",
   type: "Doctor",
   password: "123456"
 )
 
-user_doctor = User.create(
+user_doctorsantiago = User.create(
   email: "santiago@gmail.com",
   first_name: "Santiago",
   last_name: "Velarde",
@@ -66,7 +66,7 @@ user_doctor = User.create(
   password: "123456"
 )
 
-user_doctor = User.create(
+user_doctorlaura = User.create(
   email: "laura@gmail.com",
   first_name: "Laura",
   last_name: "Perez",
@@ -74,7 +74,7 @@ user_doctor = User.create(
   password: "123456"
 )
 
-user_doctor = User.create(
+user_doctorjose = User.create(
   email: "jose@gmail.com",
   first_name: "Jose",
   last_name: "Tovar",
@@ -82,7 +82,7 @@ user_doctor = User.create(
   password: "123456"
 )
 
-user_doctor = User.create(
+user_doctorareli = User.create(
   email: "areli@gmail.com",
   first_name: "Areli",
   last_name: "Carbajal",
@@ -90,7 +90,7 @@ user_doctor = User.create(
   password: "123456"
 )
 
-user_doctor = User.create(
+user_doctorraul = User.create(
   email: "raul@gmail.com",
   first_name: "Raul",
   last_name: "Vazquez",
@@ -122,7 +122,7 @@ DoctorSpecialty.create(
 
 
 # Enfermeras
-user_nurse = User.create(
+user_nursegustavo = User.create(
   email: "gustavonurse@gmail.com",
   first_name: "Gustavo",
   last_name: "Gutierrez",
@@ -130,7 +130,7 @@ user_nurse = User.create(
   password: "123456"
 )
 
-user_nurse = User.create(
+user_nurseleticia = User.create(
   email: "leticianurse@gmail.com",
   first_name: "Leticia",
   last_name: "Gonzalez",
@@ -138,7 +138,7 @@ user_nurse = User.create(
   password: "123456"
 )
 
-user_nurse = User.create(
+user_nursepatricia = User.create(
   email: "patricianurse@gmail.com",
   first_name: "Patricia",
   last_name: "Flores",
@@ -146,7 +146,7 @@ user_nurse = User.create(
   password: "123456"
 )
 
-user_nurse = User.create(
+user_nurseisael = User.create(
   email: "isaelnurse@gmail.com",
   first_name: "Isael",
   last_name: "Vazquez",
@@ -154,7 +154,7 @@ user_nurse = User.create(
   password: "123456"
 )
 
-user_nurse = User.create(
+user_nurseshanice = User.create(
   email: "shanicenurse@gmail.com",
   first_name: "Shanice",
   last_name: "Torres",
@@ -163,7 +163,7 @@ user_nurse = User.create(
 )
 
 # Pacientes
-user_patient = User.create(
+user_patientjanet = User.create(
   email: "janet@gmail.com",
   first_name: "Janet",
   last_name: "Torres",
@@ -171,7 +171,7 @@ user_patient = User.create(
   password: "123456"
 )
 
-user_patient = User.create(
+user_patientjudith = User.create(
   email: "juditht@gmail.com",
   first_name: "Judith",
   last_name: "Carmona",
@@ -179,7 +179,7 @@ user_patient = User.create(
   password: "123456"
 )
 
-user_patient = User.create(
+user_patientsebastian = User.create(
   email: "sebastian@gmail.com",
   first_name: "Sebastian",
   last_name: "Valencia",
@@ -187,7 +187,7 @@ user_patient = User.create(
   password: "123456"
 )
 
-user_patient = User.create(
+user_patientaraceli = User.create(
   email: "araceli@gmail.com",
   first_name: "Araceli",
   last_name: "Miller",
@@ -195,7 +195,7 @@ user_patient = User.create(
   password: "123456"
 )
 
-user_patient = User.create(
+user_patientmia = User.create(
   email: "mia@gmail.com",
   first_name: "Mia",
   last_name: "Rojas",
@@ -203,7 +203,7 @@ user_patient = User.create(
   password: "123456"
 )
 
-user_patient = User.create(
+user_patientricardo = User.create(
   email: "ricardo@gmail.com",
   first_name: "Ricardo",
   last_name: "Castro",
@@ -211,7 +211,7 @@ user_patient = User.create(
   password: "123456"
 )
 
-user_patient = User.create(
+user_patientcristian = User.create(
   email: "cristian@gmail.com",
   first_name: "Cristian",
   last_name: "Mendoza",
@@ -219,7 +219,7 @@ user_patient = User.create(
   password: "123456"
 )
 
-user_patient = User.create(
+user_patientcarlos = User.create(
   email: "carlos@gmail.com",
   first_name: "Carlos",
   last_name: "Serrano",
@@ -227,7 +227,7 @@ user_patient = User.create(
   password: "123456"
 )
 
-user_patient = User.create(
+user_patientveronica = User.create(
   email: "veronica@gmail.com",
   first_name: "Veronica",
   last_name: "Jaimes",
@@ -236,13 +236,12 @@ user_patient = User.create(
 )
 
 user_patient = User.create(
-  email: "janet@gmail.com",
-  first_name: "Janet",
-  last_name: "Torres",
+  email: "teresa@gmail.com",
+  first_name: "Teresa",
+  last_name: "Trejo",
   type: "Patient",
   password: "123456"
 )
-
 
 patient_resume = Resume.create(
   birth_date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
