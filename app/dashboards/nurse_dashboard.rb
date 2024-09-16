@@ -91,4 +91,7 @@ class NurseDashboard < Administrate::BaseDashboard
   # def display_resource(nurse)
   #   "Nurse ##{nurse.id}"
   # end
+  def display_resource(nurse)
+    "#{nurse.first_name} #{nurse.last_name}"
+  end
 end
