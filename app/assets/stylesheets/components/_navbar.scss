@@ -4,10 +4,16 @@
   color: #333;
   font-weight: 500;
 }
-
+.nav-link {
+  font-size: 25px;
+  text-decoration: none;
+  color: #000;
+  transition: all 0.3s ease;
+}
 .nav-link {
   &:hover {
-    color: #007bff;
+    text-decoration: underline;
+    color: #3091f9;
   }
 }
 .navbar-lewagon .navbar-collapse {
@@ -33,8 +39,8 @@
 
     &.dropdown {
       .avatar {
-        width: 40px;
-        height: 40px;
+        width: 75px;
+        height: 75px;
         border-radius: 50%;
         object-fit: cover;
       }

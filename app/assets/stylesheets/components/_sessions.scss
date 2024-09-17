@@ -1,0 +1,33 @@
+/* app/assets/stylesheets/devise/_sessions.scss */
+.login-container {
+  background-image: url('baner2.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Para que ocupe toda la pantalla */
+  display: flex;
+  justify-content: center; /* Centra horizontalmente el formulario */
+  align-items: center    /* Centra verticalmente el formulario */
+}
+
+
+.login-form {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-inputs {
+  margin-bottom: 15px;
+}
+
+.form-actions {
+  text-align: center;
+}
