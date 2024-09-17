@@ -1,0 +1,29 @@
+/* app/assets/stylesheets/devise.scss */
+
+.signup-container {
+  background-image: url('fondo1.avif');
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Para que ocupe toda la pantalla */
+  display: flex;
+  justify-content: center; /* Centra horizontalmente el formulario */
+  align-items: center
+}
+
+.signup-form {
+  background: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad para mejor visibilidad del texto */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px; /* Ajusta el tamaño máximo del formulario */
+}
+
+.signup-form h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.form-actions {
+  text-align: center;
+}
