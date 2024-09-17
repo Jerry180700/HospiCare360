@@ -37,7 +37,8 @@ class DoctorDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     appointments
-    doctor_specialty
+    first_name
+    last_name
     email
   ].freeze
 

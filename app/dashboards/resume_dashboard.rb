@@ -45,7 +45,6 @@ class ResumeDashboard < Administrate::BaseDashboard
     gender
     height
     nationality
-    status
     weight
     created_at
     updated_at
@@ -62,7 +61,6 @@ class ResumeDashboard < Administrate::BaseDashboard
     gender
     height
     nationality
-    status
     weight
   ].freeze
 
@@ -84,4 +82,7 @@ class ResumeDashboard < Administrate::BaseDashboard
   # def display_resource(resume)
   #   "Resume ##{resume.id}"
   # end
+  def display_resource(resume)
+    "Resume ##{resume.id}"
+  end
 end

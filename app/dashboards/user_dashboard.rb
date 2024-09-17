@@ -34,9 +34,10 @@ class UserDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    doctor_specialty
+    type
+    first_name
+    last_name
     email
-    encrypted_password
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -99,4 +100,7 @@ class UserDashboard < Administrate::BaseDashboard
   # def display_resource(user)
   #   "User ##{user.id}"
   # end
+  def display_resource(user)
+    "#{user.first_name} #{user.last_name}"
+  end
 end

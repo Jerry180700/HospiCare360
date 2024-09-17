@@ -63,4 +63,7 @@ class SpecialtyDashboard < Administrate::BaseDashboard
   # def display_resource(specialty)
   #   "Specialty ##{specialty.id}"
   # end
+  def display_resource(specialty)
+    "#{specialty.name}"
+  end
 end
