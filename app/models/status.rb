@@ -2,22 +2,27 @@ class Status < ApplicationRecord
   belongs_to :patient,
              class_name: 'Patient',
              foreign_key: 'patient_id'
+  # Se agregó el callback con Enrique
+  after_update_commit :generate_description
+  # before_save :generate_description
 
   private
 
+    # Refactorizamos el generate_description con Enrique
   def generate_description
     case status
     when 'Preoperative'
-      self.descripcion = generate_preoperatorio_description
+      new_descripcion = generate_preoperatorio_description
     when 'In surgery'
-      self.descripcion = generate_cirugia_description
+      new_descripcion = generate_cirugia_description
     when 'Postoperative'
-      self.descripcion = generate_postoperatorio_description
+      new_descripcion = generate_postoperatorio_description
     when 'Hospital discharge'
-      self.descripcion = generate_alta_description
+      new_descripcion = generate_alta_description
     else
-      self.descripcion = "There are not status to show"
+      new_descripcion = "There are not status to show"
     end
+    update_column(:descripcion, new_descripcion)
   end
 
   # Generación de descripciones según el checklist
@@ -34,7 +39,8 @@ class Status < ApplicationRecord
     else
       description << "The patient had complications in surgery, please consult with your doctor."
     end
-    description << "The doctor who performed the surgery is #{patient.surgery.doctor.first_name} #{patient.surgery.doctor.last_name}"
+    surgery = Surgery.find_by(patient_id: patient.id)
+    description << "The doctor who performed the surgery is #{surgery.doctor.first_name} #{surgery.doctor.last_name}"
     description.join(" ")
   end
 
@@ -45,14 +51,17 @@ class Status < ApplicationRecord
     else
       description << "The patient does not require special care."
     end
-    description << "The patient is in the bed #{patient.bed_id}"
-    description << "The doctor who performed the surgery is #{patient.surgery.doctor.first_name} #{patient.surgery.doctor.last_name}"
-    description << "The nurse in charge is #{patient.surgery.nurse.first_name} #{patient.surgery.nurse.last_name}"
+    bed = Bed.find_by(patient_id: patient.id)
+    surgery = Surgery.find_by(patient_id: patient.id)
+    description << "The patient is in the bed #{bed.id}"
+    description << "The doctor who performed the surgery is #{surgery.doctor.first_name} #{surgery.doctor.last_name}"
+    description << "The nurse in charge is #{surgery.nurse.first_name} #{surgery.nurse.last_name}"
     description.join(" ")
   end
 
   def generate_alta_description
     description = []
-    description << "The patient has been discharged without complications." if alta_hospitalaria
+    description << "The patient has been discharged without complications."
+    description.join(" ")
   end
 end

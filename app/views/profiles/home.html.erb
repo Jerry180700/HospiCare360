@@ -34,9 +34,9 @@
     <div>
       <!-- Datos de la cita -->
       <div class="accordion" id="appointmentAccordion">
-        <% appointment = current_user.appointments.last %>
+        <% @appointment = current_user.appointments.last %>
 
-        <% if appointment || @surgeries %>
+        <% if @appointment || @surgeries %>
           <!-- Preoperative Section -->
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingPreoperative">
@@ -47,9 +47,11 @@
             <div id="collapsePreoperative" class="accordion-collapse collapse show" aria-labelledby="headingPreoperative" data-bs-parent="#appointmentAccordion">
               <div class="accordion-body">
                 <p><strong>Doctor:</strong> <%= @surgeries.last.doctor.first_name %> <%= @surgeries.last.doctor.last_name %></p>
-                <p><strong>Specialty:</strong> <%= appointment.doctor.specialty.name %></p>
+                <p><strong>Specialty:</strong> <%= @appointment.doctor.specialty.name %></p>
                 <p><strong>Check in:</strong> <%= @patient.resume.check_in %></p>
-                <p><strong>Description:</strong><%= appointment.patient.statuses.last.descripcion %></p>
+                <% if @appointment.patient.statuses.last.status == "Preoperative" && @appointment.patient.statuses.last.descripcion.present? %>
+                <p><strong>Description:</strong><%= @appointment.patient.statuses.last.descripcion %></p>
+                <% end %>
               </div>
             </div>
           </div>
@@ -64,11 +66,13 @@
             <div id="collapseSurgery" class="accordion-collapse collapse" aria-labelledby="headingSurgery" data-bs-parent="#appointmentAccordion">
               <div class="accordion-body">
                 <p><strong>Doctor:</strong> <%= @surgeries.last.doctor.first_name %> <%= @surgeries.last.doctor.last_name %></p>
-                <p><strong>Specialty:</strong> <%= appointment.doctor.specialty.name %></p>
+                <p><strong>Specialty:</strong> <%= @appointment.doctor.specialty.name %></p>
                 <p><strong>Nurse:</strong> <%= @surgeries.last.nurse.first_name %> <%= @surgeries.last.nurse.last_name %></p>
                 <p><strong>Check in:</strong> <%= @surgeries.last.check_in %></p>
                 <p><strong>Check out:</strong> <%= @surgeries.last.check_out %></p>
-                <p><strong>Description:</strong><%= appointment.patient.statuses.last.descripcion %></p>
+                <% if @appointment.patient.statuses.last.status == "In surgery" %>
+                <p><strong>Description:</strong><%= @appointment.patient.statuses.last.descripcion %></p>
+                <% end %>
               </div>
             </div>
           </div>
@@ -84,9 +88,10 @@
               <div class="accordion-body">
                 <p><strong>Doctor:</strong> <%= @surgeries.last.doctor.first_name %> <%= @surgeries.last.doctor.last_name %></p>
                 <p><strong>Nurse:</strong> <%= @surgeries.last.nurse.first_name %> <%= @surgeries.last.nurse.last_name %></p>
-                <%# <p><strong>Bed:</strong> <%= @patient.bed %> </p> %>
-                <p><strong>Description:</strong><%= appointment.patient.statuses.last.descripcion %></p>
-
+                <p><strong>Bed:</strong> <%= @bed.id %> </p>
+                <% if @appointment.patient.statuses.last.status == "Postoperative" %>
+                <p><strong>Description:</strong><%= @appointment.patient.statuses.last.descripcion %></p>
+                <% end %>
               </div>
             </div>
           </div>
@@ -102,7 +107,9 @@
               <div class="accordion-body">
                 <p><strong>Doctor:</strong> <%= @surgeries.last.doctor.first_name %> <%= @surgeries.last.doctor.last_name %></p>
                 <p><strong>Check out:</strong> <%= @patient.resume.check_out %></p>
-                <p><strong>Description:</strong><%= appointment.patient.statuses.last.descripcion %></p>
+                <% if @appointment.patient.statuses.last.status == "Hospital discharge" %>
+                <p><strong>Description:</strong><%= @appointment.patient.statuses.last.descripcion %></p>
+                <% end %>
               </div>
             </div>
           </div>
