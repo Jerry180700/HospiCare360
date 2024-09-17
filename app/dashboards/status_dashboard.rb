@@ -15,7 +15,8 @@ class StatusDashboard < Administrate::BaseDashboard
     alta_hospitalaria: Field::Boolean,
     descripcion: Field::Text,
     patient: Field::BelongsTo,
-    status: Field::String,
+    # status: Field::String, # Este era nuesto status anterior
+    status: Field::Select.with_options(collection: ['Preoperative', 'In surgery', 'Postoperative', 'Hospital discharge']),
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -53,11 +54,10 @@ class StatusDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     patient
     status
-    descripcion
     preoperatorio_completado
     cirugia_sin_complicaciones
     cuidados_especiales
-    alta_hospitalaria
+
   ].freeze
 
   # COLLECTION_FILTERS
