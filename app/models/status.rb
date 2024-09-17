@@ -15,6 +15,8 @@ class Status < ApplicationRecord
       self.descripcion = generate_postoperatorio_description
     when 'Hospital discharge'
       self.descripcion = generate_alta_description
+    else
+      self.descripcion = "There are not status to show"
     end
   end
 
