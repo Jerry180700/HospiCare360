@@ -38,12 +38,15 @@ class PatientDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     appointments
-    doctor_specialty
+    first_name
+    last_name
+    resume
     email
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
+  # Se borra medical resume
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     appointments
@@ -52,7 +55,6 @@ class PatientDashboard < Administrate::BaseDashboard
     password
     first_name
     last_name
-    medical_resume
     photo_attachment
     photo_blob
     remember_created_at
@@ -75,6 +77,7 @@ class PatientDashboard < Administrate::BaseDashboard
     last_name
     email
     password
+    medical_resume
   ].freeze
 
   # COLLECTION_FILTERS

@@ -35,9 +35,9 @@ class NurseDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    doctor_specialty
+    first_name
+    last_name
     email
-    password
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
