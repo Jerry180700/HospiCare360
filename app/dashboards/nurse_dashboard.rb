@@ -37,7 +37,7 @@ class NurseDashboard < Administrate::BaseDashboard
     id
     doctor_specialty
     email
-    encrypted_password
+    password
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
