@@ -54,11 +54,10 @@ class StatusDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     patient
     status
-    descripcion
     preoperatorio_completado
     cirugia_sin_complicaciones
     cuidados_especiales
-    
+
   ].freeze
 
   # COLLECTION_FILTERS
