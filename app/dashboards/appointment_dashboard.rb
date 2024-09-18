@@ -13,7 +13,7 @@ class AppointmentDashboard < Administrate::BaseDashboard
     doctor: Field::BelongsTo,
     patient: Field::BelongsTo,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES

@@ -34,12 +34,18 @@ module Admin
     # empty values into nil values. It uses other APIs such as `resource_class`
     # and `dashboard`:
     #
-    # def resource_params
-    #   params.require(resource_class.model_name.param_key).
-    #     permit(dashboard.permitted_attributes(action_name)).
-    #     transform_values { |value| value == "" ? nil : value }
-    # end
 
+    def resource_params
+      patient_params = params.require(resource_class.model_name.param_key)
+                             .permit(dashboard.permitted_attributes(action_name))
+                             .transform_values { |value| value == "" ? nil : value }
+      if params[:patient][:medical_resume]
+        medical_resume_params = params[:patient][:medical_resume].permit(:resume_id, :user_id)
+        medical_resume = MedicalResume.find_or_initialize_by(medical_resume_params)
+        patient_params[:medical_resume] = medical_resume
+      end
+      patient_params
+    end
     # See https://administrate-demo.herokuapp.com/customizing_controller_actions
     # for more information
   end
