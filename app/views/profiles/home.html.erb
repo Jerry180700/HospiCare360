@@ -1,50 +1,41 @@
-<h1 class="mb-4">Status</h1>
+<div style="min-height: 100vh; padding: 10px; background-image: url('https://res.cloudinary.com/dhaafwmtf/image/upload/v1726767150/fnd2_oca6ew.webp');background-repeat: no-repeat; background-size: cover;">
+<h1 class="mb-4" style="font-size: 5rem; font-family: 'Arial', sans-serif; font-weight: bold; color: #343a40; padding-bottom: 10px; text-align: left; margin-left: 20px;">
+  Medical History
+</h1>
 
-<!-- Usamos una grid para dividir en 4fr y 8fr -->
-<div class="grid-layout" style="display: grid; grid-template-columns: 4fr 8fr; gap: 20px;">
-  <!-- Información del Paciente -->
-  <div class="card">
-    <div class="card-header">
-      Patient Information
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">
-        <strong>Name:</strong> <%= @patient.first_name %> <%= @patient.last_name %>
-      </li>
-      <li class="list-group-item">
-        <strong>Gender:</strong> <%= @patient.resume&.gender %>
-      </li>
-      <li class="list-group-item">
-        <strong>Nationality:</strong> <%= @patient.resume&.nationality %>
-      </li>
-      <li class="list-group-item">
-        <strong>Height:</strong> <%= @patient.resume&.height %>
-      </li>
-      <li class="list-group-item">
-        <strong>Weight:</strong> <%= @patient.resume&.weight %>
-      </li>
-      <li class="list-group-item">
-        <strong>Check in:</strong> <%= @patient.resume&.check_in %>
-      </li>
-      <li class="list-group-item">
-        <strong>Check out:</strong> <%= @patient.resume&.check_out %>
-      </li>
-    </ul>
-  </div>
+  <div class="container" style="max-width: 1500px; margin: 0 auto;">
+    <!-- Usamos una grid para dividir en 4fr y 8fr -->
+    <div class="grid-layout" style="display: grid; grid-template-columns: 4fr 8fr; gap: 20px;">
+      <!-- Información del Paciente -->
+      <div class="card" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 10px; margin-left: 20px; background-color: #fff;">
+        <div class="card-header" style="background-color: #007bff; color: white; font-size: 1.25rem; border-radius: 10px 10px 0 0;">
+          Patient Information
+        </div>
+        <ul class="list-group list-group-flush">
+         <li class="list-group-item" style="background-color: #fff;"><strong>Name:</strong> <%= @patient.first_name %> <%= @patient.last_name %></li>
+         <li class="list-group-item" style="background-color: #fff;"><strong>Gender:</strong> <%= @patient.resume&.gender %></li>
+         <li class="list-group-item" style="background-color: #fff;"><strong>Nationality:</strong> <%= @patient.resume&.nationality %></li>
+         <li class="list-group-item" style="background-color: #fff;"><strong>Height:</strong> <%= @patient.resume&.height %></li>
+         <li class="list-group-item" style="background-color: #fff;"><strong>Weight:</strong> <%= @patient.resume&.weight %></li>
+         <li class="list-group-item" style="background-color: #fff;"><strong>Check in:</strong> <%= @patient.resume&.check_in %></li>
+         <li class="list-group-item" style="background-color: #fff;"><strong>Check out:</strong> <%= @patient.resume&.check_out %></li>
+        </ul>
+      </div>
+
 
   <!-- Calendario de Citas y Datos del Citas -->
   <div>
     <!-- Datos de la cita -->
-    <div class="accordion" id="appointmentAccordion">
+    <div class="accordion" id="appointmentAccordion" >
       <% @appointment = current_user.appointments.last %>
       <% @last_surgery = @surgeries&.last %>
 
       <% if @appointment.present? || @last_surgery.present? %>
 
         <!-- Preoperative Section -->
-        <div class="accordion-item">
+        <div class="accordion-item" style= "border-radius: 10px 10px 0 0;">
           <h2 class="accordion-header" id="headingPreoperative">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePreoperative" aria-expanded="true" aria-controls="collapsePreoperative">
+            <button class="accordion-button btn btn-outline-primary" style= "border-radius: 10px 10px 0 0; font-size: 1.25rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePreoperative" aria-expanded="true" aria-controls="collapsePreoperative" >
               Preoperative
             </button>
           </h2>
@@ -53,7 +44,7 @@
               <% if @last_surgery&.doctor.present? %>
                 <p><strong>Doctor:</strong> <%= @last_surgery.doctor.first_name %> <%= @last_surgery.doctor.last_name %></p>
               <% else %>
-                <p><strong>Desripction: </strong>No se han registrado cirugías para este paciente.</p>
+                <p><strong>Desripction: </strong>No surgeries have been recorded for this patient.</p>
               <% end %>
               <% if @appointment&.doctor.present? %>
                 <p><strong>Specialty:</strong> <%= @appointment.doctor.specialty.name %></p>
@@ -69,7 +60,7 @@
         <!-- In Surgery Section -->
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingSurgery">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSurgery" aria-expanded="false" aria-controls="collapseSurgery">
+            <button  class="accordion-button btn btn-outline-primary" style= "font-size: 1.25rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSurgery" aria-expanded="false" aria-controls="collapseSurgery">
               In surgery
             </button>
           </h2>
@@ -92,7 +83,7 @@
         <!-- Postoperative Section -->
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingPostoperative">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePostoperative" aria-expanded="false" aria-controls="collapsePostoperative">
+            <button  class="accordion-button btn btn-outline-primary" style= "font-size: 1.25rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePostoperative" aria-expanded="false" aria-controls="collapsePostoperative">
               Postoperative
             </button>
           </h2>
@@ -102,7 +93,7 @@
                 <p><strong>Doctor:</strong> <%= @last_surgery.doctor&.first_name %> <%= @last_surgery.doctor&.last_name %></p>
                 <p><strong>Nurse:</strong> <%= @last_surgery.nurse&.first_name %> <%= @last_surgery.nurse&.last_name %></p>
                 <!--<p><strong>Bed:</strong> <%= @bed&.id %> </p>-->
-                
+
                 <% if @appointment&.patient&.statuses&.last&.status == "Postoperative" %>
                   <p><strong>Description:</strong> <%= @appointment.patient.statuses.last.descripcion %></p>
                 <% end %>
@@ -114,7 +105,7 @@
         <!-- Hospital Discharge Section -->
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingDischarge">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDischarge" aria-expanded="false" aria-controls="collapseDischarge">
+            <button class="accordion-button btn btn-outline-primary" style= "color: black; font-size: 1.25rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDischarge" aria-expanded="false" aria-controls="collapseDischarge">
               Hospital discharge
             </button>
           </h2>
@@ -132,8 +123,10 @@
         </div>
 
       <% else %>
-        <p>No hay datos disponibles de cirugías o citas para este paciente.</p>
+        <p>No surgery or appointment data available for this patient.</p>
       <% end %>
     </div>
   </div>
+</div>
+</div>
 </div>
