@@ -20,7 +20,7 @@ class Status < ApplicationRecord
     when 'Hospital discharge'
       new_descripcion = generate_alta_description
     else
-      new_descripcion = "There are not status to show"
+      new_descripcion = "There are not status to show."
     end
     update_column(:descripcion, new_descripcion)
   end
@@ -42,7 +42,7 @@ class Status < ApplicationRecord
       description << "The patient had complications in surgery, please consult with your doctor."
     end
     surgery = Surgery.find_by(patient_id: patient.id)
-    description << "The doctor who performed the surgery is #{surgery.doctor.first_name} #{surgery.doctor.last_name}"
+    description << "The doctor who performed the surgery is #{surgery.doctor.first_name} #{surgery.doctor.last_name}."
     description.join(" ")
   end
 
@@ -55,9 +55,9 @@ class Status < ApplicationRecord
     end
     bed = Bed.find_by(patient_id: patient.id)
     surgery = Surgery.find_by(patient_id: patient.id)
-    description << "The patient is in the bed #{bed.id}"
-    description << "The doctor who performed the surgery is #{surgery.doctor.first_name} #{surgery.doctor.last_name}"
-    description << "The nurse in charge is #{surgery.nurse.first_name} #{surgery.nurse.last_name}"
+    description << "The patient is in the bed #{bed.id}."
+    description << "The doctor who performed the surgery is #{surgery.doctor.first_name} #{surgery.doctor.last_name}."
+    description << "The nurse in charge is #{surgery.nurse.first_name} #{surgery.nurse.last_name}."
     description.join(" ")
   end
 
