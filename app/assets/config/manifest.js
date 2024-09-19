@@ -5,3 +5,4 @@
 //= link popper.js
 //= link bootstrap.min.js
  //= link 'administrate-field-active_storage/application.css'
+ //= link application.css
