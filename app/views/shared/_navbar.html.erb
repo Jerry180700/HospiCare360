@@ -21,7 +21,11 @@
           </li>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "User avatar" %>
+            <% if current_user.type == "Patient" %>
+              <%= image_tag "https://res.cloudinary.com/dhaafwmtf/image/upload/v1726760794/avatarpat_vbudyq.png", class: "avatar", alt: "User avatar" %>
+            <% else  %>
+              <%= image_tag "https://res.cloudinary.com/dhaafwmtf/image/upload/v1726760721/avatar_c5eegw.png", class: "avatar", alt: "User avatar" %>
+             <% end  %>
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <% if current_user.type == "Patient" %>
