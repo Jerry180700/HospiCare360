@@ -1,0 +1,43 @@
+
+.inciodepagina img{
+  width: 100%;  /* A lo ancho de la página */
+  height: 400px; /* Ajuste la altura según lo que desees */
+  object-fit: cover;
+}
+
+.row-galeria{
+  justify-content: space-between; /* Espacio horizontal entre las cards */
+}
+
+.grid-item {
+  padding: 25px;
+  margin-bottom: 30px;
+}
+.grid-item img {
+  display: block;
+  height: 300px; /* Ajusta la altura fija para las imágenes */
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+  .dmg-img-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    padding: 130px;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+
+  .grid-item:hover .dmg-img-overlay {
+    opacity: 2; /* Efecto hover para mostrar el overlay */
+  }
+
+  .grid-item {
+    position: relative;
+  }
