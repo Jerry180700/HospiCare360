@@ -8,7 +8,7 @@ class Status < ApplicationRecord
 
   private
 
-    # Refactorizamos el generate_description con Enrique
+  # Refactorizamos el generate_description con Enrique
   def generate_description
     case status
     when 'Preoperative'
@@ -28,7 +28,9 @@ class Status < ApplicationRecord
   # Generación de descripciones según el checklist
   def generate_preoperatorio_description
     description = []
-    description << "The patient has completed all preoperative procedures.\nAnd she is waiting to be transferred to the operating room." if preoperatorio_completado
+    if preoperatorio_completado
+      description << "The patient has completed all preoperative procedures.\nAnd she is waiting to be transferred to the operating room."
+    end
     description.join(" ")
   end
 

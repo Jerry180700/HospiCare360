@@ -12,7 +12,7 @@ class MedicalResumeDashboard < Administrate::BaseDashboard
     resume: Field::BelongsTo,
     user: Field::BelongsTo,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES

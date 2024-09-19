@@ -12,7 +12,7 @@ class SpecialtyDashboard < Administrate::BaseDashboard
     doctor_specialty: Field::HasMany,
     name: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -64,6 +64,6 @@ class SpecialtyDashboard < Administrate::BaseDashboard
   #   "Specialty ##{specialty.id}"
   # end
   def display_resource(specialty)
-    "#{specialty.name}"
+    specialty.name.to_s
   end
 end

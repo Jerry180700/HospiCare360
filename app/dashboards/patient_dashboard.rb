@@ -27,7 +27,7 @@ class PatientDashboard < Administrate::BaseDashboard
     surgeries: Field::HasMany,
     type: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES

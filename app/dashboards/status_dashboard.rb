@@ -16,7 +16,8 @@ class StatusDashboard < Administrate::BaseDashboard
     descripcion: Field::Text,
     patient: Field::BelongsTo,
     # status: Field::String, # Este era nuesto status anterior
-    status: Field::Select.with_options(collection: ['Preoperative', 'In surgery', 'Postoperative', 'Hospital discharge']),
+    status: Field::Select.with_options(collection: ['Preoperative', 'In surgery', 'Postoperative',
+                                                    'Hospital discharge']),
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze

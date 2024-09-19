@@ -1,2 +1,115 @@
-<h1>Profiles#information</h1>
-<p>Find me in app/views/profiles/information.html.erb</p>
+<h1 class="mb-4">Status</h1>
+  <!-- Usamos una grid para dividir en 4fr y 8fr -->
+  <div class="grid-layout" style="display: grid; grid-template-columns: 4fr 8fr; gap: 20px;">
+    <!-- Información del Paciente -->
+    <div class="card">
+      <div class="card-header">
+        Patient Information
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <strong>Name:</strong> <%= @patient.first_name %> <%= @patient.last_name %>
+        </li>
+        <li class="list-group-item">
+          <strong>Gender:</strong> <%= @patient.resume.gender %>
+        </li>
+        <li class="list-group-item">
+          <strong>Nationality:</strong> <%= @patient.resume.nationality %>
+        </li>
+        <li class="list-group-item">
+          <strong>Height:</strong> <%= @patient.resume.height %>
+        </li>
+        <li class="list-group-item">
+          <strong>Weight:</strong> <%= @patient.resume.weight %>
+        </li>
+        <li class="list-group-item">
+          <strong>Check in:</strong> <%= @patient.resume.check_in %>
+        </li>
+        <li class="list-group-item">
+          <strong>Check out:</strong> <%= @patient.resume.check_out %>
+        </li>
+      </ul>
+    </div>
+    <!-- Calendario de Citas y Datos del Citas -->
+    <div>
+      <!-- Datos de la cita -->
+      <div class="accordion" id="appointmentAccordion">
+        <% @appointment = current_user.appointments.last %>
+        <% if @appointment || @surgeries %>
+          <!-- Preoperative Section -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingPreoperative">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePreoperative" aria-expanded="true" aria-controls="collapsePreoperative">
+                Preoperative
+              </button>
+            </h2>
+            <div id="collapsePreoperative" class="accordion-collapse collapse show" aria-labelledby="headingPreoperative" data-bs-parent="#appointmentAccordion">
+              <div class="accordion-body">
+                <p><strong>Doctor:</strong> <%= @surgeries.last.doctor.first_name %> <%= @surgeries.last.doctor.last_name %></p>
+                <p><strong>Specialty:</strong> <%= @appointment.doctor.specialty.name %></p>
+                <p><strong>Check in:</strong> <%= @patient.resume.check_in %></p>
+                <% if @appointment.patient.statuses.last.status == "Preoperative" && @appointment.patient.statuses.last.descripcion.present? %>
+                <p><strong>Description:</strong><%= @appointment.patient.statuses.last.descripcion %></p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <!-- In Surgery Section -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSurgery">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSurgery" aria-expanded="false" aria-controls="collapseSurgery">
+                In surgery
+              </button>
+            </h2>
+            <div id="collapseSurgery" class="accordion-collapse collapse" aria-labelledby="headingSurgery" data-bs-parent="#appointmentAccordion">
+              <div class="accordion-body">
+                <p><strong>Doctor:</strong> <%= @surgeries.last.doctor.first_name %> <%= @surgeries.last.doctor.last_name %></p>
+                <p><strong>Specialty:</strong> <%= @appointment.doctor.specialty.name %></p>
+                <p><strong>Nurse:</strong> <%= @surgeries.last.nurse.first_name %> <%= @surgeries.last.nurse.last_name %></p>
+                <p><strong>Check in:</strong> <%= @surgeries.last.check_in %></p>
+                <p><strong>Check out:</strong> <%= @surgeries.last.check_out %></p>
+                <% if @appointment.patient.statuses.last.status == "In surgery" %>
+                <p><strong>Description:</strong><%= @appointment.patient.statuses.last.descripcion %></p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <!-- Postoperative Section -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingPostoperative">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePostoperative" aria-expanded="false" aria-controls="collapsePostoperative">
+                Postoperative
+              </button>
+            </h2>
+            <div id="collapsePostoperative" class="accordion-collapse collapse" aria-labelledby="headingPostoperative" data-bs-parent="#appointmentAccordion">
+              <div class="accordion-body">
+                <p><strong>Doctor:</strong> <%= @surgeries.last.doctor.first_name %> <%= @surgeries.last.doctor.last_name %></p>
+                <p><strong>Nurse:</strong> <%= @surgeries.last.nurse.first_name %> <%= @surgeries.last.nurse.last_name %></p>
+                <p><strong>Bed:</strong> <%= @bed.id %> </p>
+                <% if @appointment.patient.statuses.last.status == "Postoperative" %>
+                <p><strong>Description:</strong><%= @appointment.patient.statuses.last.descripcion %></p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <!-- Hospital Discharge Section -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingDischarge">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDischarge" aria-expanded="false" aria-controls="collapseDischarge">
+                Hospital discharge
+              </button>
+            </h2>
+            <div id="collapseDischarge" class="accordion-collapse collapse" aria-labelledby="headingDischarge" data-bs-parent="#appointmentAccordion">
+              <div class="accordion-body">
+                <p><strong>Doctor:</strong> <%= @surgeries.last.doctor.first_name %> <%= @surgeries.last.doctor.last_name %></p>
+                <p><strong>Check out:</strong> <%= @patient.resume.check_out %></p>
+                <% if @appointment.patient.statuses.last.status == "Hospital discharge" %>
+                <p><strong>Description:</strong><%= @appointment.patient.statuses.last.descripcion %></p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>

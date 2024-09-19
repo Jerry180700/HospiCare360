@@ -3,14 +3,6 @@ module Admin
     # Overwrite any of the RESTful controller actions to implement custom behavior
     # For example, you may want to send an email after a foo is updated.
     # Esto se agregó con Enrique
-    def update
-      super
-      # send_foo_updated_email(requested_resource)
-    end
-
-    def destroy
-      super
-    end
 
     # Override this method to specify custom lookup behavior.
     # This will be used to set the resource for the `show`, `edit`, and `update`
@@ -44,13 +36,11 @@ module Admin
     #     transform_values { |value| value == "" ? nil : value }
     # end
 
-
     # Esto lo agregamos con Enrique
     def resource_params
-      params.require(:status).permit(:patient_id, :status, :descripcion, :preoperatorio_completado, :cirugia_sin_complicaciones, :cuidados_especiales, :alta_hospitalaria)
+      params.require(:status).permit(:patient_id, :status, :descripcion, :preoperatorio_completado,
+                                     :cirugia_sin_complicaciones, :cuidados_especiales, :alta_hospitalaria)
     end
-
-
 
     # See https://administrate-demo.herokuapp.com/customizing_controller_actions
     # for more information
